@@ -27,6 +27,30 @@ class PlaceFinderViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(getLocation(_:)))
+        gesture.minimumPressDuration = 2.0
+        mapView.addGestureRecognizer(gesture)
+    }
+    
+    @objc func getLocation(_ gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            load(show: true)
+            let point = gesture.location(in: mapView)
+            
+            //pega e convert as coordenadas
+            let coordinate  = mapView.convert(point, toCoordinateFrom: mapView)
+            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) in
+                self.load(show: false)
+                if error == nil {
+                    if !self.savePlace(with: placemarks?.first) {
+                        self.showMessage(tipo: .error("Erro ao localizar local"))
+                    }
+                } else {
+                    self.showMessage(tipo: .error("Erro desconhecido"))
+                }
+            }
+        }
     }
     
     @IBAction func findLocal(_ sender: Any) {
@@ -88,7 +112,8 @@ class PlaceFinderViewController: UIViewController {
         alert.addAction(cancelAction)
         if hasConfirmation {
             let confirmAction = UIAlertAction(title: "Adicionar", style: .default) { _ in
-                self.dismiss(animated: true, completion: nil)
+//                self.dismiss(animated: true, completion: nil)
+                
             }
             alert.addAction(confirmAction)
         }

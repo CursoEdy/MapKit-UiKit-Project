@@ -104,6 +104,11 @@ por 2 segundos.</string>
                                         <rect key="frame" x="10" y="176" width="333" height="566"/>
                                         <standardMapConfiguration key="preferredConfiguration"/>
                                     </mapView>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edS-Ny-ezh">
+                                        <rect key="frame" x="10" y="60.333333333333329" width="223" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <view hidden="YES" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5MZ-85-Fut">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="752"/>
                                         <subviews>
@@ -118,11 +123,6 @@ por 2 segundos.</string>
                                             <constraint firstItem="diV-fb-Iaq" firstAttribute="centerX" secondItem="5MZ-85-Fut" secondAttribute="centerX" id="RT1-kD-Oyn"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edS-Ny-ezh">
-                                        <rect key="frame" x="10" y="60.333333333333329" width="223" height="35"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
