@@ -9,7 +9,7 @@ import Foundation
 import MapKit
 
 struct Place: Codable, Hashable {
-    let id: Int
+    
     let name: String
     let adress: String
     
