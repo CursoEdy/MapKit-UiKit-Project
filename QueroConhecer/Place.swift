@@ -50,3 +50,9 @@ struct Place: Codable, Hashable {
     }
     
 }
+
+extension Place: Equatable {
+    static func  ==(lhs: Place, rhs: Place) -> Bool {
+        return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
+    }
+}

@@ -8,6 +8,10 @@
 import UIKit
 import MapKit
 
+protocol PlaceFindeDelegate: class {
+    func addPlace(_ place: Place)
+}
+
 class PlaceFinderViewController: UIViewController {
     
     enum PlaceFinderMessageType {
@@ -21,7 +25,8 @@ class PlaceFinderViewController: UIViewController {
     @IBOutlet weak var viewLoading: UIView!
     
     var place: Place!
-    
+    // vc nao pode colocar weak em protocolo, por isso usamos o "class"no metodo
+    weak var delegate: PlaceFindeDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,7 +117,8 @@ class PlaceFinderViewController: UIViewController {
         alert.addAction(cancelAction)
         if hasConfirmation {
             let confirmAction = UIAlertAction(title: "Adicionar", style: .default) { _ in
-//                self.dismiss(animated: true, completion: nil)
+                self.delegate?.addPlace(self.place)
+                self.dismiss(animated: true, completion: nil)
                 
             }
             alert.addAction(confirmAction)
