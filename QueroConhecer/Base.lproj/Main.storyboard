@@ -251,11 +251,20 @@ por 2 segundos.</string>
                                     </view>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="YNW-vh-kBd">
+                                <rect key="frame" x="178" y="393" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="NYg-Pj-jaZ"/>
+                                    <constraint firstAttribute="width" constant="37" id="qhd-hM-FJk"/>
+                                </constraints>
+                                <color key="color" name="main"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DdG-qq-XfH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="DdG-qq-XfH" firstAttribute="bottom" secondItem="DdA-kX-3mB" secondAttribute="bottom" constant="10" id="3Pj-yi-aq1"/>
+                            <constraint firstItem="YNW-vh-kBd" firstAttribute="centerY" secondItem="MtS-Lz-Zdt" secondAttribute="centerY" id="6pk-iF-b3d"/>
                             <constraint firstItem="DdA-kX-3mB" firstAttribute="leading" secondItem="DdG-qq-XfH" secondAttribute="leading" constant="10" id="BmF-tX-gOo"/>
                             <constraint firstItem="Wym-Qo-LSE" firstAttribute="top" secondItem="DdG-qq-XfH" secondAttribute="top" id="EIu-w8-Myh"/>
                             <constraint firstItem="Wym-Qo-LSE" firstAttribute="top" secondItem="DdG-qq-XfH" secondAttribute="top" id="FOW-24-dWv"/>
@@ -267,6 +276,7 @@ por 2 segundos.</string>
                             <constraint firstItem="DdG-qq-XfH" firstAttribute="trailing" secondItem="Wym-Qo-LSE" secondAttribute="trailing" id="bJa-If-SfX"/>
                             <constraint firstItem="Wym-Qo-LSE" firstAttribute="leading" secondItem="DdG-qq-XfH" secondAttribute="leading" id="bUQ-Rv-4hr"/>
                             <constraint firstItem="DdA-kX-3mB" firstAttribute="top" secondItem="DdG-qq-XfH" secondAttribute="top" constant="10" id="hGp-L3-B32"/>
+                            <constraint firstItem="YNW-vh-kBd" firstAttribute="centerX" secondItem="MtS-Lz-Zdt" secondAttribute="centerX" id="vBs-O8-WWd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="GSy-Ly-1uW">
@@ -279,6 +289,7 @@ por 2 segundos.</string>
                     <connections>
                         <outlet property="lbAdress" destination="4QP-Os-imu" id="ADT-JM-iSa"/>
                         <outlet property="lbName" destination="y49-EI-jS5" id="RRX-Nj-MYV"/>
+                        <outlet property="loadingMap" destination="YNW-vh-kBd" id="3lv-vD-66Q"/>
                         <outlet property="mapView" destination="MtS-Lz-Zdt" id="WwK-w2-5gu"/>
                         <outlet property="searchBar" destination="xYQ-cK-6Dc" id="AUc-0g-W4k"/>
                         <outlet property="viInfo" destination="6kN-mB-dJW" id="hAO-CD-4ev"/>
