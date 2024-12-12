@@ -17,11 +17,39 @@ class MapViewController: UIViewController {
     @IBOutlet weak var lbName: UILabel!
     @IBOutlet weak var lbAdress: UILabel!
     
+    var places: [Place]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.isHidden = true
+        viInfo.isHidden = true
+        
+        if places.count == 1 {
+            title = places[0].name
+        } else {
+            title = "Meu lugares"
+        }
 
         // Do any additional setup after loading the view.
+        for place in places {
+            addToMap(place)
+        }
+        
+        showplaces()
+    }
+    
+    func addToMap(_ place: Place) {
+        //adicionando alfinetes em cada ponto salvo no map
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = place.coordinate
+        annotation.title = place.name
+        annotation.subtitle = place.adress
+        mapView.addAnnotation(annotation)
+    }
+    
+    func showplaces() {
+        mapView.showAnnotations(mapView.annotations, animated: true)
     }
     
     @IBAction func showRouter(_ sender: UIButton) {
